@@ -11,7 +11,7 @@ This project provides a modern dark-mode streaming player UI with advanced audio
 Enjoy the fully working online application:
 👉 **[Spotify Clone Live Demo](https://spotifyclone-webs.netlify.app/)**
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e37fba97-0766-4626-9212-06a9fa3e5f00/deploy-status?branch=main)](https://app.netlify.com/sites/animated-marshmallow-d90790/deploys)
+
 
 ---
 
