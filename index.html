@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Spotify Tab Icon -->
+    <link rel="icon" type="image/x-icon" href="icon.png" />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="logo-container">
+          <img src="logo.png" alt="Spotify" class="logo" />
+          <span class="logo-text">Spotify</span>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item active" id="nav-home">
+              <a href="#"><i class="fas fa-home"></i> <span>Home</span></a>
+            </li>
+            <li class="nav-item" id="nav-search">
+              <a href="#"><i class="fas fa-search"></i> <span>Search</span></a>
+            </li>
+            <li class="nav-item" id="nav-library">
+              <a href="#"><i class="fas fa-book-open"></i> <span>Your Library</span></a>
+            </li>
+          </ul>
+        </nav>
+        <div class="playlist-section">
+          <button class="create-playlist-btn">
+            <i class="fas fa-plus-square"></i> Create Playlist
+          </button>
+          <button class="liked-songs-nav-btn active-tab-trigger" id="nav-liked">
+            <div class="liked-heart-box">
+              <i class="fas fa-heart"></i>
+            </div>
+            <span>Liked Songs</span>
+          </button>
+          <hr class="sidebar-divider" />
+          <div class="sidebar-playlists">
+            <a href="#" class="sidebar-playlist-link">NCS Favorites</a>
+            <a href="#" class="sidebar-playlist-link">Electro Party</a>
+            <a href="#" class="sidebar-playlist-link">Chill Vibes</a>
+            <a href="#" class="sidebar-playlist-link">Workout Energy</a>
+            <a href="#" class="sidebar-playlist-link">Focus Beats</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <!-- Top Sticky Header -->
+        <header class="main-header">
+          <div class="header-left">
+            <button class="nav-arrow" disabled><i class="fas fa-chevron-left"></i></button>
+            <button class="nav-arrow" disabled><i class="fas fa-chevron-right"></i></button>
+            <!-- Search bar: hidden by default, visible when Search tab is active -->
+            <div class="search-bar-container" id="search-container">
+              <i class="fas fa-search search-bar-icon"></i>
+              <input
+                type="text"
+                placeholder="What do you want to listen to?"
+                id="search-input"
+                class="search-input"
+              />
+              <button id="search-clear-btn" class="search-clear-btn"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
+          <div class="header-right">
+            <a href="https://github.com" target="_blank" class="premium-badge">GitHub Profile</a>
+            <button class="profile-badge">
+              <i class="fas fa-user-circle"></i>
+              <span>User Account</span>
+            </button>
+          </div>
+        </header>
+
+        <div class="view-container">
+          <!-- HOME VIEW -->
+          <section class="content-view active" id="home-view">
+            <!-- Hero Banner -->
+            <div class="hero-banner">
+              <div class="hero-content">
+                <span class="hero-tag">PLAYLIST</span>
+                <h1 class="hero-title">Best of NCS</h1>
+                <p class="hero-desc">No Copyright Sounds - Electronic, House, Drum & Bass, and more. Free to use music beats.</p>
+                <div class="hero-buttons">
+                  <button class="play-btn-large" id="hero-play-btn"><i class="fas fa-play"></i> Play</button>
+                  <button class="follow-btn">Follow</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Popular Playlists/Albums Cards -->
+            <div class="shelf-section">
+              <h2 class="shelf-title">Popular Playlists</h2>
+              <div class="cards-grid">
+                <div class="playlist-card" data-playlist="ncs-hits">
+                  <div class="card-img-container">
+                    <img src="covers/1.jpg" alt="NCS Hits" class="card-img" />
+                    <button class="card-play-btn"><i class="fas fa-play"></i></button>
+                  </div>
+                  <h3 class="card-title">NCS Hits</h3>
+                  <p class="card-desc">Top tracks from No Copyright Sounds.</p>
+                </div>
+                <div class="playlist-card" data-playlist="chill">
+                  <div class="card-img-container">
+                    <img src="covers/3.jpg" alt="Chill Vibes" class="card-img" />
+                    <button class="card-play-btn"><i class="fas fa-play"></i></button>
+                  </div>
+                  <h3 class="card-title">Chill Vibes</h3>
+                  <p class="card-desc">Relaxing beats to code or study to.</p>
+                </div>
+                <div class="playlist-card" data-playlist="electro">
+                  <div class="card-img-container">
+                    <img src="covers/7.jpg" alt="Electro Party" class="card-img" />
+                    <button class="card-play-btn"><i class="fas fa-play"></i></button>
+                  </div>
+                  <h3 class="card-title">Electro Party</h3>
+                  <p class="card-desc">Upbeat electronic and house music.</p>
+                </div>
+                <div class="playlist-card" data-playlist="workout">
+                  <div class="card-img-container">
+                    <img src="covers/6.jpg" alt="Workout" class="card-img" />
+                    <button class="card-play-btn"><i class="fas fa-play"></i></button>
+                  </div>
+                  <h3 class="card-title">Workout Energy</h3>
+                  <p class="card-desc">Keep moving with high bpm melodies.</p>
+                </div>
+                <div class="playlist-card" data-playlist="bollywood">
+                  <div class="card-img-container">
+                    <img src="covers/2.jpg" alt="Bollywood" class="card-img" />
+                    <button class="card-play-btn"><i class="fas fa-play"></i></button>
+                  </div>
+                  <h3 class="card-title">90s Bollywood Hits</h3>
+                  <p class="card-desc">Romantic 90s & 2000s classics.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Songs List (Table-style) -->
+            <div class="songs-table-section">
+              <h2 class="shelf-title">Featured Tracks</h2>
+              <div class="table-header-row">
+                <div class="col-index">#</div>
+                <div class="col-title">Title</div>
+                <div class="col-album">Album</div>
+                <div class="col-actions"></div>
+                <div class="col-duration"><i class="far fa-clock"></i></div>
+              </div>
+              <hr class="table-divider" />
+              <div class="tracks-list-container" id="featured-tracks-list">
+                <!-- Song items populated dynamically in script.js -->
+              </div>
+            </div>
+          </section>
+
+          <!-- SEARCH VIEW -->
+          <section class="content-view" id="search-view">
+            <h2 class="shelf-title">Browse all</h2>
+            <div class="categories-grid" id="search-categories">
+              <div class="category-card" style="background-color: rgb(39, 133, 106);">
+                <h3>Podcasts</h3>
+              </div>
+              <div class="category-card" style="background-color: rgb(30, 50, 100);">
+                <h3>Made For You</h3>
+              </div>
+              <div class="category-card" style="background-color: rgb(141, 103, 171);">
+                <h3>New Releases</h3>
+              </div>
+              <div class="category-card" style="background-color: rgb(232, 17, 137);">
+                <h3>Pop</h3>
+              </div>
+              <div class="category-card" style="background-color: rgb(228, 116, 21);">
+                <h3>Hip-Hop</h3>
+              </div>
+              <div class="category-card" style="background-color: rgb(20, 138, 8);">
+                <h3>Rock</h3>
+              </div>
+              <div class="category-card" style="background-color: rgb(186, 93, 7);">
+                <h3>Gaming</h3>
+              </div>
+              <div class="category-card" style="background-color: rgb(80, 55, 80);">
+                <h3>Chill</h3>
+              </div>
+              <div class="category-card" style="background-color: rgb(83, 83, 83);" onclick="handleCategoryClick('bollywood')">
+                <h3>Bollywood Retro</h3>
+              </div>
+            </div>
+
+            <!-- Dynamic Search Results -->
+            <div class="search-results-section" id="search-results-section" style="display: none;">
+              <h2 class="shelf-title" id="search-results-title">Search Results</h2>
+              <div class="songs-table-section">
+                <div class="table-header-row">
+                  <div class="col-index">#</div>
+                  <div class="col-title">Title</div>
+                  <div class="col-album">Album</div>
+                  <div class="col-actions"></div>
+                  <div class="col-duration"><i class="far fa-clock"></i></div>
+                </div>
+                <hr class="table-divider" />
+                <div class="tracks-list-container" id="search-results-list">
+                  <!-- Matching search songs populated dynamically -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- LIKED SONGS VIEW -->
+          <section class="content-view" id="liked-songs-view">
+            <div class="liked-banner">
+              <div class="liked-heart-large">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="liked-banner-info">
+                <span class="hero-tag">PLAYLIST</span>
+                <h1 class="liked-title">Liked Songs</h1>
+                <p class="liked-meta"><span class="user-meta-name">User Account</span> • <span id="liked-count">0</span> songs</p>
+              </div>
+            </div>
+
+            <div class="songs-table-section">
+              <div class="table-header-row">
+                <div class="col-index">#</div>
+                <div class="col-title">Title</div>
+                <div class="col-album">Album</div>
+                <div class="col-actions"></div>
+                <div class="col-duration"><i class="far fa-clock"></i></div>
+              </div>
+              <hr class="table-divider" />
+              <div class="tracks-list-container" id="liked-tracks-list">
+                <!-- Hearted tracks populated dynamically -->
+                <div class="empty-liked-songs" id="empty-liked-message">
+                  <i class="far fa-heart"></i>
+                  <p>Songs you like will appear here</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bottom Player Control Bar -->
+    <footer class="player-bar">
+      <!-- Now Playing Song Info -->
+      <div class="track-info">
+        <img src="covers/1.jpg" alt="" class="player-cover" id="player-cover" />
+        <div class="player-song-details">
+          <div class="player-song-title" id="masterSongName">On & On</div>
+          <div class="player-song-artist" id="player-song-artist">Cartoon, Daniel Levi</div>
+        </div>
+        <button class="player-like-btn" id="player-heart-btn">
+          <i class="far fa-heart"></i>
+        </button>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="player-controls">
+        <div class="control-buttons">
+          <button class="control-btn" id="shuffle" title="Shuffle"><i class="fas fa-random"></i></button>
+          <button class="control-btn" id="previous" title="Previous"><i class="fas fa-step-backward"></i></button>
+          <button class="control-btn-play" id="masterPlay" title="Play/Pause"><i class="fas fa-play"></i></button>
+          <button class="control-btn" id="next" title="Next"><i class="fas fa-step-forward"></i></button>
+          <button class="control-btn" id="repeat" title="Repeat"><i class="fas fa-redo"></i></button>
+        </div>
+        <div class="seek-bar-container">
+          <span class="time-label" id="current-time">0:00</span>
+          <input
+            type="range"
+            name="range"
+            id="myProgressBar"
+            min="0"
+            value="0"
+            max="1000"
+            class="seek-bar"
+          />
+          <span class="time-label" id="total-duration">0:00</span>
+        </div>
+      </div>
+
+      <!-- Utilities (Volume and Visualizer) -->
+      <div class="player-utilities">
+        <!-- CSS Equalizer Visualizer -->
+        <div class="equalizer" id="equalizer">
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+        </div>
+        
+        <!-- Volume Control -->
+        <div class="volume-container">
+          <button class="volume-btn" id="volume-icon" title="Mute/Unmute">
+            <i class="fas fa-volume-up"></i>
+          </button>
+          <input
+            type="range"
+            id="volume-slider"
+            min="0"
+            max="100"
+            value="80"
+            class="volume-slider"
+          />
+        </div>
+      </div>
+    </footer>
+
+    <!-- App Logic Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
